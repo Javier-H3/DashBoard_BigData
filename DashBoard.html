@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataCommerce Analytics - Dashboard Ejecutivo</title>
+    <link rel="stylesheet" href="DashBoard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Botón Dark Mode -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo oscuro">
+        <span class="icon">☀️</span>
+        <span class="label-text">Modo Oscuro</span>
+    </button>
+
+    <!-- Botón Hamburguesa (Móvil) -->
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Abrir filtros">
+        ☰
+    </button>
+
+    <!-- Overlay para cerrar sidebar en móvil -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <aside class="sidebar">
+        <h2>Filtros</h2>
+        <div class="filter-group">
+            <label for="filter-city">Ciudad</label>
+            <select id="filter-city">
+                <option value="Todas">Todas las ciudades</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Medellín">Medellín</option>
+                <option value="Cali">Cali</option>
+                <option value="Barranquilla">Barranquilla</option>
+                <option value="Bucaramanga">Bucaramanga</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filter-category">Categoría</label>
+            <select id="filter-category">
+                <option value="Todas">Todas las categorías</option>
+                <option value="Tecnología">Tecnología</option>
+                <option value="Electrodomésticos">Electrodomésticos</option>
+                <option value="Oficina">Oficina</option>
+                <option value="Hogar">Hogar</option>
+            </select>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-title">Ingresos Totales</div>
+                <div class="kpi-value" id="kpi-revenue">$0</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Total Transacciones</div>
+                <div class="kpi-value" id="kpi-transactions">0</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Ticket Promedio</div>
+                <div class="kpi-value" id="kpi-average">$0</div>
+            </div>
+        </section>
+
+        <section class="charts-grid">
+            <div class="chart-container">
+                <h3>Rendimiento por Vendedor</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Participación por Categoría</h3>
+                <canvas id="doughnutChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="DashBoard.js"></script>
+</body>
+</html>
